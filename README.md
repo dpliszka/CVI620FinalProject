@@ -1,1 +1,2 @@
-# CVI620FinalProject
+## CVI620 Final Project
+-----------------------  
