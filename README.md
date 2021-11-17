@@ -1,4 +1,4 @@
-# CVI620 Final Project
+# Handy Piano
 
 Members
 |   Member Name  | Github Account |           Email               | Responsibilities                        |
