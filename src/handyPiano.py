@@ -38,6 +38,25 @@ with mp_hands.Hands(
           for hand_landmarks in results.multi_hand_landmarks:
             mp_drawing.draw_landmarks(
                 image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+            
+            thumb_tip_z = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].z
+            index_tip_z = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].z
+            middle_tip_z = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].z
+            ring_tip_z = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP].z
+            pinky_tip_z = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP].z
+                
+            if ring_tip_z > 0.04: 
+                print("ring pressed")
+            elif pinky_tip_z > 0.03: 
+                print("pinky pressed")
+            elif middle_tip_z > 0.03: 
+                print("middle pressed")
+            elif index_tip_z > 0.01: 
+                print("index pressed")
+            elif thumb_tip_z > 0.04: 
+                print("thumb pressed")
+            else:
+                print("No")
 
         # Display the hands
         cv2.imshow('Hands', image)
