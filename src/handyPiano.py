@@ -14,11 +14,6 @@ cap = cv2.VideoCapture(0)
 image_width  = cap.get(3)   
 image_hight = cap.get(4)
 
-# Initializing Variables 
-x_pos,y_pos = None,None
-count = 0 
-f_vec = [] 
-
 # Console 
 print("Press Q to quit")
 
@@ -43,17 +38,6 @@ with mp_hands.Hands(
           for hand_landmarks in results.multi_hand_landmarks:
             mp_drawing.draw_landmarks(
                 image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-                
-            ## Getting only INDEX finger coordinates
-            x_pos_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x 
-            y_pos_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y
-            x_pos_dip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_DIP].x 
-            y_pos_dip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_DIP].y
-            x_pos_pip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_PIP].x 
-            y_pos_pip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_PIP].y
-            f_vec = [x_pos_tip,y_pos_tip,x_pos_dip,y_pos_dip,x_pos_pip,y_pos_pip]
-            x_pos = x_pos_tip * image_width
-            y_pos = y_pos_tip * image_hight
 
         # Display the hands
         cv2.imshow('Hands', image)
