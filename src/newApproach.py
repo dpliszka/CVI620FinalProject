@@ -76,11 +76,6 @@ def calculateFingers(res, drawing):
                     finger_tip_y.append(start[1])
                     finger_tip_x.append(end[0])
                     finger_tip_y.append(end[1])
-                    # finger_tip_x.append(start[0])
-                    # finger_tip_y.append(start[1])
-                    # if i == defects.shape[0]:
-                    #     finger_tip_x.append(end[0])
-                    #     finger_tip_y.append(end[1])
 
                     # original
                     cnt += 1
@@ -202,7 +197,7 @@ while video.isOpened():
                                finger_tip_x[i] - (finger_tip_x[i] + round(flowat[1]))) * 180 / math.pi
             print("angle: ", angle)
 
-            if angle > -80 and angle < -100:
+            if angle < -35 and angle > -150:
                 key_pressed.append((finger_tip_x[i], finger_tip_y[i]))
 
         cv2.imshow('optical flow', frame)
