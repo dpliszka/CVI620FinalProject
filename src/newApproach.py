@@ -109,9 +109,6 @@ def canny_edge_detector(image):
     print("Number of Objects Detected: " + str(num_objects))
     return num_objects
 
-def draw_keys (number):
-    #for number of keys draw keys
-
 
 
 # Main
