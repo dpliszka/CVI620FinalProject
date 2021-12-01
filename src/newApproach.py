@@ -30,9 +30,6 @@ hasBackground = False
 key_pressed = []
 
 
-# Initialize Piano image that will be used for reference
-piano_img = cv2.imread('../image_files/piano.jpg')
-
 # Methods ###############################################################################
 def removeBG(frame):
     fgmask = bgModel.apply(frame,learningRate=learningRate)
@@ -93,28 +90,9 @@ def calculateFingers(res,drawing):
     return False, 0
 # End of Methods ########################################################################
 
-# Canny Edge detector Method, counting keys on piano
-def canny_edge_detector(image):
-    # reduce noise using 3 x 3  gaussian blur
-    noise_reduction = cv2.GaussianBlur(image, (3, 3), 0)
-
-    # convert to Grayscale
-    piano_img_grayscale = cv2.cvtColor(noise_reduction, cv2.COLOR_BGR2GRAY)
-
-    # Canny Edge Detection
-    canny_image = cv2.Canny(piano_img_grayscale, 50, 200)
-
-    contours, hierarchy = cv2.findContours(canny_image.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-    num_objects = len(contours)
-    print("Number of Objects Detected: " + str(num_objects))
-    return num_objects
-
-
-
 # Main
 video = cv2.VideoCapture(0)
 video.set(10,200)
-num_piano_keys = canny_edge_detector(piano_img)
 
 while video.isOpened():
     ret, frame = video.read()
@@ -140,7 +118,7 @@ while video.isOpened():
 
     #  Applying hand mask
     img = removeBG(frame)
-    img = img[int(cap_region_y_end * frame.shape[0]):int(frame.shape[0]),
+    img = img[0:int(cap_region_y_end * frame.shape[0]),
                     int(cap_region_x_begin * frame.shape[1]):frame.shape[1]]  # clip the ROI
     if devMode == 0:
         cv2.imshow('mask', img)
@@ -205,9 +183,6 @@ while video.isOpened():
                 print (cnt)                                       
     if devMode == 0:
         cv2.imshow('Contours', drawing) 
-    
-
-
 
 
     # Waiting to kill program
