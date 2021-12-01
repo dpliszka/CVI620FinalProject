@@ -86,7 +86,7 @@ piano_img = cv.imread('../image_files/piano.jpg')
 # basic_sobel_edge_detector(piano_img)
 # improved_sobel_edge_detector(piano_img)
 # canny_edge_detector(piano_img)
-threshold_dilation(piano_img)
+#threshold_dilation(piano_img)
 
 
 while(True):
