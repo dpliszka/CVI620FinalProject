@@ -172,7 +172,7 @@ while video.isOpened():
                                finger_tip_x[i] - (finger_tip_x[i] + round(flowat[1]))) * 180 / math.pi
             print("angle: ", angle)
 
-            if angle < -80 and angle > -100:
+            if angle > -175 and angle < -45:
                 key_pressed.append((finger_tip_x[i], finger_tip_y[i]))
 
         cv2.imshow('optical flow', frame)
