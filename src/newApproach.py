@@ -29,6 +29,8 @@ background_img = None
 hasBackground = False
 key_pressed = []
 
+# Capture image of piano
+piano_image = cv2.imread('../image_files/piano.jpg')
 
 # Methods ###############################################################################
 def removeBG(frame):
@@ -88,17 +90,45 @@ def calculateFingers(res, drawing):
     return False, 0
 
 
+# Canny Edge detector Method, counting keys on piano
+def canny_edge_detector(image):
+    # reduce noise using 3 x 3  gaussian blur
+    noise_reduction = cv2.GaussianBlur(image, (3, 3), 0)
+
+    # convert to Grayscale
+    piano_img_grayscale = cv2.cvtColor(noise_reduction, cv2.COLOR_BGR2GRAY)
+
+    # Canny Edge Detection
+    canny_image = cv2.Canny(piano_img_grayscale, 50, 200)
+
+    contours, hierarchy = cv2.findContours(canny_image.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    num_objects = len(contours)
+    return num_objects
+
+
+# Draws keyboard keys onto screen based on integer passed as parameter
+def draw_keys(number):
+    x_beginning = 0
+    space_per_key = int(frame.shape[1] / number)
+    x_end = x_beginning + space_per_key
+
+    for x in range(number):
+        cv2.rectangle(frame, (x_beginning, int(frame.shape[0] * 0)), (x_end, int(frame.shape[0] * 0.5)), (255, 255, 255), 2)
+        x_beginning = x_end
+        x_end = x_beginning + space_per_key
 # End of Methods ########################################################################
 
 # Main
 video = cv2.VideoCapture(0)
 video.set(10, 200)
+num_piano_keys = canny_edge_detector(piano_image)
 
 while video.isOpened():
     ret, frame = video.read()
     frame = cv2.bilateralFilter(frame, 5, 50, 100)  # smoothing filter
     frame = cv2.flip(frame, 1)  # Flip the webcam horizontally
 
+    draw_keys(num_piano_keys)
     # Calculating FPS
     new_frame_time = time.time()
     fps = 1 / (new_frame_time - prev_frame_time)
