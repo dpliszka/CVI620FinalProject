@@ -55,12 +55,14 @@ video.set(10,200)
 
 while video.isOpened():
     ret, frame = video.read()
+
     frame = cv2.bilateralFilter(frame, 5, 50, 100)  # smoothing filter
     frame = cv2.flip(frame, 1)  # Flip the webcam horizontally
 
     # Need to invert the rectangle to take the lower half portion of the screen
-    cv2.rectangle(frame, (int(cap_region_x_begin * frame.shape[1]), 0),
-                 (frame.shape[1], int(cap_region_y_end * frame.shape[0])), (255, 0, 0), 2)
+    cv2.rectangle(frame, (int(cap_region_x_begin * frame.shape[1]), int(cap_region_y_end * frame.shape[0])),
+                  (frame.shape[1], int(frame.shape[0])), (255, 0, 0), 2)
+
     if devMode == 0:
         cv2.imshow('original', frame)
 
