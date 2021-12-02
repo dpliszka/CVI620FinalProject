@@ -115,7 +115,8 @@ def draw_keys(number):
         x_end = x_beginning + space_per_key
 
 
-
+# X and Y coordinates are passed into this function when a finger is detected as "Pressed".
+# If the finger coordinates fit within the space of a keyboard key, a thread is created and sound is played
 def play_key(x_coord, y_coord, num_keys):
     space_per_key = int(frame.shape[1] / num_keys)
     print("xcoordinate is: " + str(x_coord))
