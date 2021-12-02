@@ -121,39 +121,39 @@ def play_key(x_coord, y_coord, num_keys):
     space_per_key = int(frame.shape[1] / num_keys)
     print("xcoordinate is: " + str(x_coord))
     if (y_coord >= 0) and y_coord <= int(frame.shape[0] * 0.5):
-        if 0 < x_coord < 0 + space_per_key:
+        if 0 <= x_coord <= 0 + space_per_key:
             threading.Thread(target = playsound, args=('../audio files/1_C2.mp3', ), daemon = True).start()
-        elif space_per_key * 1 < x_coord < space_per_key * 2:
+        elif space_per_key * 1 <= x_coord <= space_per_key * 2:
             threading.Thread(target = playsound, args=('../audio files/2_D2.mp3', ), daemon = True).start()
-        elif space_per_key * 2 < x_coord < space_per_key * 3:
+        elif space_per_key * 2 <= x_coord <= space_per_key * 3:
             threading.Thread(target = playsound, args=('../audio files/3_E2.mp3', ), daemon = True).start()
-        elif space_per_key * 3 < x_coord < space_per_key * 4:
+        elif space_per_key * 3 <= x_coord <= space_per_key * 4:
             threading.Thread(target = playsound, args=('../audio files/4_F2.mp3', ), daemon = True).start()
-        elif space_per_key * 4 < x_coord < space_per_key * 5:
+        elif space_per_key * 4 <= x_coord <= space_per_key * 5:
             threading.Thread(target = playsound, args=('../audio files/5_G2.mp3', ), daemon = True).start()
-        elif space_per_key * 5 < x_coord < space_per_key * 6:
+        elif space_per_key * 5 <= x_coord <= space_per_key * 6:
             threading.Thread(target = playsound, args=('../audio files/6_A3.mp3', ), daemon = True).start()
-        elif space_per_key * 6 < x_coord < space_per_key * 7:
+        elif space_per_key * 6 <= x_coord <= space_per_key * 7:
             threading.Thread(target = playsound, args=('../audio files/7_B3.mp3', ), daemon = True).start()
-        elif space_per_key * 7 < x_coord < space_per_key * 8:
+        elif space_per_key * 7 <= x_coord <= space_per_key * 8:
             threading.Thread(target = playsound, args=('../audio files/8_C3.mp3', ), daemon = True).start()
-        elif space_per_key * 8 < x_coord < space_per_key * 9:
+        elif space_per_key * 8 <= x_coord <= space_per_key * 9:
             threading.Thread(target = playsound, args=('../audio files/9_D3.mp3', ), daemon = True).start()
-        elif space_per_key * 9 < x_coord < space_per_key * 10:
+        elif space_per_key * 9 <= x_coord <= space_per_key * 10:
             threading.Thread(target = playsound, args=('../audio files/10_E3.mp3', ), daemon = True).start()
-        elif space_per_key * 10 < x_coord < space_per_key * 11:
+        elif space_per_key * 10 <= x_coord <= space_per_key * 11:
             threading.Thread(target = playsound, args=('../audio files/11_F3.mp3', ), daemon = True).start()
-        elif space_per_key * 11 < x_coord < space_per_key * 12:
+        elif space_per_key * 11 <= x_coord <= space_per_key * 12:
             threading.Thread(target = playsound, args=('../audio files/12_G3.mp3', ), daemon = True).start()
-        elif space_per_key * 12 < x_coord < space_per_key * 13:
+        elif space_per_key * 12 <= x_coord <= space_per_key * 13:
             threading.Thread(target = playsound, args=('../audio files/13_A4.mp3', ), daemon = True).start()
-        elif space_per_key * 13 < x_coord < space_per_key * 14:
+        elif space_per_key * 13 <= x_coord <= space_per_key * 14:
             threading.Thread(target = playsound, args=('../audio files/14_B4.mp3', ), daemon = True).start()
-        elif space_per_key * 14 < x_coord < space_per_key * 15:
+        elif space_per_key * 14 <= x_coord <= space_per_key * 15:
             threading.Thread(target = playsound, args=('../audio files/15_C4.mp3', ), daemon = True).start()
-        elif space_per_key * 15 < x_coord < space_per_key * 16:
+        elif space_per_key * 15 <= x_coord <= space_per_key * 16:
             threading.Thread(target = playsound, args=('../audio files/16_D4.mp3', ), daemon = True).start()
-        elif space_per_key * 16 < x_coord < space_per_key * 17:
+        elif space_per_key * 16 <= x_coord <= space_per_key * 17:
             threading.Thread(target = playsound, args=('../audio files/17_E4.mp3', ), daemon = True).start()
 # End of Methods ########################################################################
 
