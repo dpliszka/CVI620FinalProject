@@ -16,7 +16,7 @@ threshold = 128  # Binary threshold
 blurValue = 41  # GaussianBlur parameter
 bgSubThreshold = 50
 learningRate = 0
-devMode = 0  # 0 = ON
+devMode = 1  # 0 = ON
 
 # Initializing Variables
 startCounting = False
