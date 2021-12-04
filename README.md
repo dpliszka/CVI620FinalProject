@@ -17,5 +17,5 @@ HandyPiano comprises itself of OpenCV and Python programming to virtually play a
 3. Open Anaconda Navigator and click on Environments
 4. Navigate to the "ocv" environment, press on the PLAY button, then select "Open Terminal"
 5. Using the CMD command "cd", change to the directory where the .py file is
-6. Enter the command "python handyPiano.py" and wait for the application to start
+6. Enter the command "python handy.py" and wait for the application to start
 7. When ready to quit, simply press "q" on the keyboard
